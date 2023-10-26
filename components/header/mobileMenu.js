@@ -6,9 +6,9 @@ import {
   } from "react-icons/ai";
   import { FaOpencart } from "react-icons/fa";
 
-function MobileMenu({isOpen}) {
+function MobileMenu({isOpen, session, signIn}) {
   return (
-    <section className={`absolute left-0 right-0 z-10 h-screen w-full bg-white ${isOpen? "" : "hidden"}`}>
+    <section className={`absolute left-0 right-0 z-10 md:hidden h-screen w-full bg-white ${isOpen? "" : "hidden"}`}>
       <div className="mx-auto">
         <div className="mx-auto flex w-full justify-center gap-3 py-4">
           <Link href="/wishlist" legacyBehavior>
@@ -29,19 +29,28 @@ function MobileMenu({isOpen}) {
             </a>
           </Link>
 
-          <Link href="/account-page" legacyBehavior>
+          <div>
             <a className="relative flex cursor-pointer flex-col items-center justify-center">
               <span className="absolute bottom-[33px] right-1 flex h-2 w-2">
-                {/* Notification dot */}
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
               </span>
-              <AiOutlineUser
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
-            />
-              <p className="text-xs">Account</p>
+              {session ? (
+                <Link href="/user/account">
+                  <img src={session?.user?.image} className="h-6 w-6 rounded-full" />
+                </Link>
+              ) : (
+                <AiOutlineUser
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                  onClick={signIn}
+                />
+              )}
+
+              <p className="">{session?.user?.name}</p>
             </a>
-          </Link>
+          </div>
         </div>
 
         <form className="my-4 mx-5 flex h-9 items-center border">

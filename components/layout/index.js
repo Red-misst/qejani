@@ -3,8 +3,8 @@ import DesktopNav from "../desktopNav";
 const Layout = ({ children }) => {
   return (
     <div>
-      <Header />
-      <DesktopNav />
+      {/* <Header />
+      <DesktopNav /> */}
       {children}
     </div>
   );

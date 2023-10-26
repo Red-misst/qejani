@@ -21,7 +21,7 @@ const FeaturesSection = () => (
      <TbTruckDelivery className="h-6 w-6 text-teal-900 lg:mr-2" />
       }
       title="Free Delivery"
-      description="Orders from KES 500"
+      description="On Eligible Orders"
     />
 
     <Feature

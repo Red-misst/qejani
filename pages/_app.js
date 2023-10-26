@@ -2,6 +2,8 @@ import Layout from "@/components/layout";
 import { SessionProvider } from "next-auth/react";
 import {useEffect} from "react"
 import "@/styles/globals.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import Head from "next/head";
  
 export default function App({
