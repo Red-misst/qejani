@@ -6,14 +6,14 @@ const Sidebar = ({sidebarOpen}) => {
   return (
     <aside
       id="sidebar"
-      className={`fixed z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75 ${
+      className={`fixed z-20 h-screen top-0 left-0 pt-14 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75 ${
         sidebarOpen ? "" : "hidden"
       }`}
       aria-label="Sidebar"
     >
-      <div className="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+      <div className="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 pt-0 bg-white">
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-          <div className="flex-1 px-3 bg-white divide-y space-y-1">
+          <div className="flex-1 px-3 bg-gradient-to-br  from-teal-100 via-indigteal-300 to-indigteal-500  divide-y space-y-1">
             <ul className="space-y-2 pb-2">
               <li>
                 <form action="#" method="GET" className="lg:hidden">
@@ -78,7 +78,7 @@ const Sidebar = ({sidebarOpen}) => {
               </li>
               <li>
                 <a
-                  href="/admin/publishProduct"
+                  href="/admin/addProduct"
                   className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
                   <MdOutlinePublish
@@ -106,7 +106,7 @@ const Sidebar = ({sidebarOpen}) => {
               </li>
               <li>
                 <a
-                  href="/admin/comments"
+                  href="/admin/productSubcategory"
                   
                   className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
@@ -115,7 +115,7 @@ const Sidebar = ({sidebarOpen}) => {
                     fill="currentColor"
                   />
                   <span className="ml-3 flex-1 whitespace-nowrap">
-                    Reviews
+                    Product SubCategories
                   </span>
                 </a>
               </li>

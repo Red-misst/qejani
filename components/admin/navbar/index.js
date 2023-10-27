@@ -40,7 +40,7 @@ const Nav = ({ sidebarOpen, setSidebarOpen }) => {
               className="text-xl font-bold flex items-center lg:ml-2.5"
             >
               <span className="self-center whitespace-nowrap">
-                Blog Dashboard
+               Qejani Dashboard
               </span>
             </a>
             <form action="#" method="GET" className="hidden lg:block lg:pl-32">

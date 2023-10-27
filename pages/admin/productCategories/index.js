@@ -5,7 +5,7 @@ import { useState } from "react";
 import Categories from "@/models/Categories";
 import db from "@/utils/db";
 import { getSession } from "next-auth/react";
-const WriteArticle = ({ allCategories }) => {
+const ProductCategories = ({ allCategories }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [categoryInput, setCategoryInput] = useState(""); // State for the category input
   const [categories, setCategories] = useState(allCategories); // State to store the list of categories
@@ -68,19 +68,24 @@ const WriteArticle = ({ allCategories }) => {
 
               {categories?.map((category, index) => (
                 <div key={index} className="bg-gray-200 p-4 rounded">
-                  {category?.name}
-                  <button
-                    onClick={() => updateCategory(index)}
-                    className="ml-2 text-blue-500"
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={() => deleteCategory(index, category?._id)}
-                    className="ml-2 text-red-500"
-                  >
-                    Delete
-                  </button>
+                  <div className="flex justify-between">
+                    <div>{category.name}</div>
+                    <div>
+                      <button
+                        onClick={() => updateCategory(index)}
+                        className="text-blue-500 mr-2"
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => deleteCategory(index, category._id)}
+                        className="text-red-500"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  
                 </div>
               ))}
             </div>
@@ -95,7 +100,7 @@ const WriteArticle = ({ allCategories }) => {
   );
 };
 
-export default WriteArticle;
+export default ProductCategories;
 export async function getServerSideProps(context) {
   const { req, query } = context;
 
@@ -110,6 +115,7 @@ export async function getServerSideProps(context) {
   }
   db.connectDb();
   const categories = await Categories.find({}).lean();
+  console.log(categories)
   db.disconnectDb();
   return {
     props: {

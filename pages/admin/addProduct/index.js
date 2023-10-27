@@ -1,5 +1,5 @@
 import Nav from "@/components/admin/navbar";
-import NewArticle from "@/components/admin/newArticle";
+import NewProduct from "@/components/admin/newProduct";
 import Sidebar from "@/components/admin/sidebar";
 import { useState } from "react";
 import db from "@/utils/db";
@@ -24,16 +24,10 @@ const writeArticle = ({allCategories}) => {
         >
           <div className="pt-6 px-4">
             <div className="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4"></div>
-            <NewArticle categories={categories}/>
+            <NewProduct categories={categories}/>
           </div>
 
-          <p className="text-center text-sm text-gray-500 my-10">
-            &copy; 2019-2021{" "}
-            <a href="#" className="hover:underline" target="_blank">
-              Themesberg
-            </a>
-            . All rights reserved.
-          </p>
+         
         </div>
       </div>
     </>
